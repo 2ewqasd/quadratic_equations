@@ -22,20 +22,22 @@ def second_case(a,b):
 
 def third_case():
     'If D < 0'
+    x1 = x2 = 0
     print('No radix')
 
 def fourth_case():
     'If b = 0 and c = 0'
-    print('First radix = 0\n Second radix = 0')
+    print('First radix = 0\nSecond radix = 0')
 
 def fifth_case(a,c):
     'If b = 0 and c != 0'
     if (-1 * (c / a)) > 0:
         x1 = (-1 * (c / a)) ** 0.5
         x2 = -1 * ((-1 * (c / a)) ** 0.5)
-        return x1,x2
     else:
+        x1 = x2 = 0
         print('No radix')
+    return x1,x2
 
 def sixth_case(a,b):
     'If b != 0 and c = 0'
@@ -55,14 +57,14 @@ def main():
     else:
         d = discriminant(a,b,c)
         if d > 0:
-            x1,x2 = fifth_case(a,b,d)
+            x1,x2 = first_case(a,b,d)
         elif d == 0:
             x1,x2 = second_case(a,b)
         else:
             third_case()
-    if x1 or x2 == True:
-        print(f'First radix = {x1}\n Second radix = {x2}')
-
+    if x1 and x2 != 0:
+        print(f'First radix = {x1}\nSecond radix = {x2}')
+    
     
 
 if __name__ == '__main__':
